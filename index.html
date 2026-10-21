@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La-Jazz Student Accommodation</title>
+  <link rel="stylesheet" href="BookingStyle.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-navbar">
+    <div class="nav-brand">
+      <i class="fa-solid fa-house-chimney nav-logo-icon"></i>
+      <div class="nav-title-group">
+        <span class="nav-main-title">La-Jazz</span>
+        <span class="nav-sub-title">Reservation for Year 2027</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header Section -->
+  <header class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">La-Jazz Student Accommodation</h1>
+      <p class="hero-subtitle">Your home away from home. Safe. Comfortable. Convenient.</p>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <form id="bookingForm" novalidate>
+      
+      <!-- Personal Details Section -->
+      <div class="form-section">
+        <h2><i class="fa-solid fa-user-graduate"></i> Personal Details</h2>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" required placeholder="e.g. Thato">
+          </div>
+
+          <div class="form-group">
+            <label for="surname">Surname *</label>
+            <input type="text" id="surname" required placeholder="e.g. Baloyi">
+          </div>
+
+          <div class="form-group">
+            <label for="studentNum">Student Number *</label>
+            <input type="text" id="studentNum" required placeholder="e.g. 220012345">
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNum">Cell Phone Number *</label>
+            <input type="text" id="phoneNum" required placeholder="e.g. 0821234567">
+          </div>
+
+          <div class="form-group">
+            <label for="idNumber">ID Number *</label>
+            <input type="text" id="idNumber" required placeholder="e.g. 0307125800085">
+          </div>
+
+          <div class="form-group">
+            <label for="studyYear">Year of Study Next Year *</label>
+            <select id="studyYear" required>
+              <option value="">-- Select Academic Year --</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+              <option value="5th Year">5th Year</option>
+              <option value="6th Year">6th Year</option>
+            </select>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label>Gender *</label>
+            <div class="gender-options">
+              <label class="gender-btn" id="genderFemaleLabel">
+                <input type="radio" name="gender" value="Female" required>
+                <i class="fa-solid fa-venus"></i> Female
+              </label>
+              <label class="gender-btn" id="genderMaleLabel">
+                <input type="radio" name="gender" value="Male" required>
+                <i class="fa-solid fa-mars"></i> Male
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accommodation Selection Section -->
+      <div class="form-section">
+        <h2><i class="fa-solid fa-bed"></i> Room Selection</h2>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="blockSelect">Allocated Residence Block *</label>
+            <select id="blockSelect" required disabled>
+              <option value="">-- Please select gender first --</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="roomSelect">Available Room *</label>
+            <select id="roomSelect" required disabled>
+              <option value="">-- Select block first --</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="roomAlert" class="alert hidden"></div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn" id="submitBtn" disabled>
+        <i class="fa-solid fa-paper-plane"></i> Confirm & Book Room
+      </button>
+
+    </form>
+  </main>
+
+  <!-- Booking Confirmation Modal -->
+  <div id="receiptModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h3>Booking Confirmed!</h3>
+      </div>
+      <div class="modal-body" id="receiptBody">
+        <!-- Receipt details populated via JavaScript -->
+      </div>
+      <div class="modal-footer">
+        <button id="closeModalBtn" class="modal-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3><i class="fa-solid fa-headset"></i> Need Help with Your Booking?</h3>
+        <p>Reach out to the La-Jazz Student Accommodation management team for assistance.</p>
+      </div>
+      
+      <div class="footer-contacts">
+        <!-- Direct WhatsApp Link -->
+        <a href="https://wa.me/27636448272?text=Hello%20La-Jazz%20Team%2C%20I%20need%20help%20with%20my%20accommodation%20booking." target="_blank" class="contact-item whatsapp-link">
+          <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
+          <div>
+            <span>Call / WhatsApp Chat</span>
+            <p>063 644 8272</p>
+          </div>
+        </a>
+
+        <!-- Direct Email Link -->
+        <a href="mailto:info.lajazzplk@starutsconstruction.co.za?subject=Accommodation%20Booking%20Enquiry" class="contact-item email-link">
+          <i class="fa-solid fa-envelope email-icon"></i>
+          <div>
+            <span>Email Enquiries</span>
+            <p>info.lajazzplk@starutsconstruction.co.za</p>
+          </div>
+        </a>
+
+        <!-- Office Hours & Physical Address Block -->
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <span>Office Hours</span>
+            <p>Mon - Fri: 08:00 - 16:00</p>
+            <span class="location-address">(5 Biccard Street, Polokwane)</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 La-Jazz Student Accommodation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Bookingscript.js"></script>
+</body>
+</html>

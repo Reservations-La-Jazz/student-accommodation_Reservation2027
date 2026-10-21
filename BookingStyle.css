@@ -1,0 +1,546 @@
+/* ==========================================================================
+   Global Variables & Reset
+   ========================================================================== */
+:root {
+  --primary-blue: #2563eb;
+  --dark-navy: #0f172a;
+  --header-bg: #1e293b;
+  --card-bg: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #cbd5e1;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --radius: 10px;
+  --transition: all 0.25s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+  background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+              url('resevation.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   Top Navigation Bar
+   ========================================================================== */
+.top-navbar {
+  background-color: var(--dark-navy);
+  padding: 0.9rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nav-logo-icon {
+  font-size: 2.1rem;
+  color: #3b82f6;
+}
+
+.nav-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-main-title {
+  color: #ffffff;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+.nav-sub-title {
+  color: #cbd5e1;
+  font-size: 0.825rem;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Hero Banner Header Section
+   ========================================================================== */
+.hero-section {
+  background-color: var(--header-bg);
+  padding: 2.5rem 2rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  color: #e2e8f0;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Form Container
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 850px;
+  margin: 2rem auto;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2.25rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   Form Sections & Inputs
+   ========================================================================== */
+.form-section {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-section h2 {
+  font-size: 1.1rem;
+  color: var(--primary-blue);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group-full {
+  grid-column: span 2;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  transition: var(--transition);
+  outline: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+select:disabled {
+  background-color: #f1f5f9;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Red Input Error State */
+input.input-error,
+select.input-error {
+  border-color: var(--danger) !important;
+  background-color: #fef2f2 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+}
+
+/* ==========================================================================
+   Gender Selector Buttons
+   ========================================================================== */
+.gender-options {
+  display: flex;
+  gap: 0.75rem;
+  height: 44px;
+}
+
+.gender-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background-color: #ffffff;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.gender-btn * {
+  pointer-events: none;
+}
+
+.gender-btn input[type="radio"] {
+  display: none;
+}
+
+.gender-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.gender-btn.active {
+  border-color: var(--primary-blue);
+  background-color: rgba(37, 99, 235, 0.08);
+  color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   Alert Messages
+   ========================================================================== */
+.alert {
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  line-height: 1.4;
+}
+
+.alert.info {
+  background-color: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.alert.warning {
+  background-color: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+/* Red Danger Alert for Duplicates and Critical Errors */
+.alert.danger {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  font-weight: 600;
+}
+
+.alert.hidden {
+  display: none;
+}
+
+/* ==========================================================================
+   Submit Button
+   ========================================================================== */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary-blue);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.submit-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   Modal Dialog
+   ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: var(--radius);
+  max-width: 480px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-icon {
+  font-size: 3rem;
+  color: var(--success);
+  margin-bottom: 0.5rem;
+}
+
+.modal-header h3 {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+}
+
+.receipt-card {
+  background: #f8fafc;
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.4rem;
+}
+
+.receipt-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.receipt-row span:first-child {
+  color: var(--text-muted);
+}
+
+.receipt-row span:last-child {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.modal-footer {
+  margin-top: 1.5rem;
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--primary-blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.modal-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ==========================================================================
+   Footer Styles
+   ========================================================================== */
+.site-footer {
+  background: rgba(15, 23, 42, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  padding: 40px 20px 20px 20px;
+  margin-top: 60px;
+  backdrop-filter: blur(8px);
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-info h3 {
+  font-size: 1.25rem;
+  color: #60a5fa;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-info p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.footer-contacts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(30, 41, 59, 0.6);
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-decoration: none !important;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.contact-item i {
+  font-size: 1.4rem;
+  color: #3b82f6;
+}
+
+/* WhatsApp Link Hover Effect */
+.contact-item.whatsapp-link:hover {
+  background: rgba(37, 211, 102, 0.15);
+  border-color: #25d366;
+  transform: translateY(-2px);
+}
+
+.whatsapp-icon {
+  color: #25d366 !important;
+}
+
+/* Email Link Hover Effect */
+.contact-item.email-link:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.email-icon {
+  color: #3b82f6 !important;
+}
+
+.contact-item span {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  text-decoration: none !important;
+}
+
+.contact-item p {
+  margin: 2px 0 0 0;
+  font-weight: 600;
+  color: #f1f5f9;
+  font-size: 0.88rem;
+  word-break: break-word;
+  text-decoration: none !important;
+}
+
+/* Small Address Subtext */
+.location-address {
+  font-size: 0.75rem !important;
+  color: #94a3b8 !important;
+  text-transform: none !important;
+  font-weight: 400 !important;
+  margin-top: 2px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group-full {
+    grid-column: span 1;
+  }
+
+  .container {
+    padding: 1.25rem;
+    margin: 1rem auto;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+}
